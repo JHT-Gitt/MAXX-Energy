@@ -19,10 +19,11 @@ import './App.css';
 import RateChart from './pages/RateChart';
 import DataPage from './pages/DataPage';
 import ScrollToTop from './components/ScrollToTop';
+import ResetPassword from "./pages/ResetPassword";
 
 function Layout() {
   const location = useLocation();
-  const hideLayout = ["/register", "/login", "/forgot-password"].includes(location.pathname);
+  const hideLayout = ["/register", "/login", "/forgot-password", "/reset-password"].includes(location.pathname);
 
   return (
     <Box minH="100vh" display="flex" flexDirection="column">
@@ -39,6 +40,7 @@ function Layout() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/data" element={<RateChart />} />
           <Route path="/data-page" element={<DataPage />} />
           

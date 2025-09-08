@@ -19,7 +19,7 @@ import { Link as RouterLink, useNavigate, useSearchParams } from "react-router-d
 
 export default function ResetPassword() {
   const [search] = useSearchParams();
-  const token = search.get("token") || ""; // reset token from email link
+  const token = search.get("token") || ""; // token from email
 
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -41,7 +41,6 @@ export default function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setTouched({ password: true, confirm: true });
-
     if (errors.password || errors.confirm || errors.token) return;
 
     try {
@@ -82,7 +81,9 @@ export default function ResetPassword() {
 
   return (
     <Container maxW="lg" py={{ base: 8, md: 12 }}>
-      <Heading size="lg" mb={6}>Set a new password</Heading>
+      <Heading size="lg" mb={6}>
+        Set a new password
+      </Heading>
 
       <Box
         as="form"
@@ -148,3 +149,9 @@ export default function ResetPassword() {
             <Link as={RouterLink} to="/login" color="blue.500">
               Login
             </Link>
+          </Text>
+        </VStack>
+      </Box>
+    </Container>
+  );
+}
